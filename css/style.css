@@ -1,0 +1,588 @@
+/** Общие */
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: "Segoe UI",Helvetica,Arial,sans-serif;
+	padding: 0;
+	margin: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 860px;
+	padding: 0 20px;
+}
+
+main {
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+}
+
+p {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+h1 {
+	font-size: 2.3em;
+	font-weight: 900;
+	padding: 5px 0;
+	margin: 0;
+}
+
+h2 {
+	font-size: 24px;
+	margin: 20px 0;
+	margin-bottom: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.information,
+.answers h2,
+.restart h2 {
+	border-left: 2px dashed #DF8600;
+	padding-left: 20px;
+}
+
+/** Шапка */
+
+header {
+	background-color: #5199FF;
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px;
+	-webkit-animation: header-animation 1s 1s backwards ease;
+	        animation: header-animation 1s 1s backwards ease;
+}
+
+/** Секция с настройками */
+
+/** Поля ввода цифр */
+
+input[type="text"] {
+	width: 30px;
+	height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+	outline: none;
+}
+
+input[type="text"]:hover {
+	border-color: rgb(144, 188, 250);
+	-webkit-transition: all 0.2;
+	-o-transition: all 0.2;
+	transition: all 0.2;
+}
+
+input[type="text"]:focus {
+	border-color: rgb(27, 98, 199);
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.ui-slider .ui-slider-range {
+    background: #FBE7B5;
+}
+
+.ui-slider .ui-slider-handle {
+	width: 0.6em;
+}
+
+/** Настройки */
+
+.settings {
+	border-left: 2px dashed #DF8600;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+
+.settings-items {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+
+.settings-item {
+	height: 60px;
+	border:  2px solid #DF8600;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 8px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+/** Секция с настройками диапазона чисел */
+
+.settings-range {
+	width: 320px;
+}
+
+.settings-range table {
+	margin: auto;
+}
+
+.settings-range table td:nth-child(2) {
+	padding: 0 10px;
+	padding-top: 3px;
+}
+
+#slider-range {
+	width: 180px;
+}
+
+/** Секция с настройками количества примеров */
+
+.settings-amount {
+	width: 200px;
+}
+
+.settings-amount table {
+	margin: auto;
+}
+
+.settings-amount table td:first-child {
+	padding: 0 10px;
+	padding-top: 3px;
+}
+
+#range {
+	width: 100px;
+}
+
+/** Секция с настройками знаков операций */
+
+.settings-operations {
+	width: 140px;
+}
+
+.settings-operations table {
+	margin-left: 14px;
+}
+
+.settings-operations table td {
+	padding: 4px;
+	padding-top: 7px;
+}
+
+.settings-operations table label {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+
+/** Стилизация чекбоксов (галочкек) */
+
+input[type="checkbox"]:checked, 
+input[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"]:checked + label, 
+input[type="checkbox"]:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 11px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label::before, 
+input[type="checkbox"]:not(:checked) + label::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 1px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #dddddd;
+	background-color: #ffffff;
+	border-radius: 2px;
+}
+
+input[type="checkbox"]:checked + label::after, 
+input[type="checkbox"]:not(:checked) + label::after {
+    content: "";
+    position: absolute;
+	-webkit-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+	left: -6px;
+    top: 2px;
+    width: 10px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 3px solid rgb(194, 116, 0);
+	border-bottom: 3px solid rgb(194, 116, 0);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+input[type="checkbox"]:not(:checked) + label::after {
+	opacity: 0;
+	-webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+
+input[type="checkbox"]:checked + label::after {
+	opacity: 1;
+	-webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+/** Секция для начала тренировки */
+
+.start{
+	margin-bottom: 20px;
+	display: block;
+}
+
+.start-text {
+	display: inline-block;
+	background-color: #FBE7B5;
+	border: 2px dashed #DF8600;
+	border-radius: 5px;
+	margin: 0;
+	padding: 20px;
+	font-weight: 500;
+}
+
+.start-button {
+	background-color: #FFAF50;
+	font-family: Circe, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	border: solid 1px #DF8600;
+	border-radius: 5px;
+	padding: 5px;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+	outline: none;
+}
+
+.start-button:hover {
+	background-color: #FFCB8B;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.start-button:active {
+	color: #00000081;
+}
+
+@media (max-width: 777px) {
+	.start-text {
+		line-height: 40px;
+		padding-bottom: 30px;
+	}
+}
+
+/** Секция со статистикой ответов */
+
+/** Шкала процента првильных/неправильных ответов */
+
+.progress-not-answered {
+	background-color: rgb(226, 230, 231);
+	height: 15px;
+	width: 100%;
+	margin: 10px 0;
+	border-radius: 10px;
+}
+
+.progress-answered-ok {
+	background-color: #35D073;
+	height: inherit;
+	border-top-left-radius: inherit;
+	border-bottom-left-radius: inherit;
+	width: 0%;
+	float: left;
+	text-align: center;
+	transition: all 1s;
+}
+
+.progress-answered-bad {
+	background-color: rgb(235, 90, 82);
+	height: inherit;
+	border-top-right-radius: inherit;
+	border-bottom-right-radius: inherit;
+	float: right;
+	width: 0%;
+	text-align: center;
+	transition: all 1s;
+}
+
+.progress-answered-ok-0 {
+	border-top-left-radius: inherit;
+	border-bottom-left-radius: inherit;
+}
+
+.progress-answered-bad-0 {
+	border-top-right-radius: inherit;
+	border-bottom-right-radius: inherit;
+}
+
+/** Ответы */
+
+.answers-block {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+
+.left-block {
+	-webkit-flex-basis: 49%;
+	    -ms-flex-preferred-size: 49%;
+	        flex-basis: 49%;
+}
+
+.right-block {
+	-webkit-flex-basis: 49%;
+	    -ms-flex-preferred-size: 49%;
+	        flex-basis: 49%;
+}
+
+@media (max-width: 550px) {
+	.right-block {
+		-webkit-flex-basis: 100%;
+		    -ms-flex-preferred-size: 100%;
+		        flex-basis: 100%;
+	}
+	
+	.left-block {
+		-webkit-flex-basis: 100%;
+		    -ms-flex-preferred-size: 100%;
+		        flex-basis: 100%;
+	}
+}
+
+.column {
+	font-size: 16px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.right-column {
+	border-color: #41B619;
+	background-color: #C9FFBF;
+}
+
+.error-column {
+	border-color: #B40A1B;
+	background-color: #FFDFDC;
+}
+
+.answers ol {
+	text-align: left;
+	margin: 0;
+}
+
+.answers li {
+	font-weight: bold;
+	padding-bottom: 16px;
+}
+
+.answers li:first-child {
+	padding-top: 10px;
+}
+
+.answers li:last-child {
+	padding-bottom: 0px;
+}
+
+.answers .normal-text {
+	font-weight: normal;
+}
+
+/** Подвал */
+
+footer {
+	background-color: #5199FF;
+	padding: 7px 0;
+	margin-top: 30px;
+	opacity: 1;
+}
+
+footer p {
+	font-size: 14px;
+}
+
+footer a {
+	text-decoration: none;
+	background-color: rgba(45, 20, 87, 0.247);
+	color: black;
+	padding: 0 4px;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+footer a:hover {
+	background-color: #B7D4FF;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+@media (max-width: 440px) {
+	span.welcome-text {
+		top: 150px;
+	}
+}
+
+/** Анимации по окончании загрузки страницы */
+
+ @-webkit-keyframes header-animation {
+	from {
+		-webkit-transform: translateY(-140px);
+		        transform: translateY(-140px);
+	}
+}
+
+ @keyframes header-animation {
+	from {
+		-webkit-transform: translateY(-140px);
+		        transform: translateY(-140px);
+	}
+}
+
+@-webkit-keyframes footer-animation {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes footer-animation {
+	from {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes welcome-animation {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes welcome-animation {
+	to {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes welcome-display-animation {
+	to {
+		-webkit-transform: translateX(-1500px);
+		        transform: translateX(-1500px);
+	}
+}
+
+@keyframes welcome-display-animation {
+	to {
+		-webkit-transform: translateX(-1500px);
+		        transform: translateX(-1500px);
+	}
+}
+
+@-webkit-keyframes block-animation {
+	from {
+		-webkit-transform: translateX(-1500px);
+		        transform: translateX(-1500px);
+	}
+}
+
+@keyframes block-animation {
+	from {
+		-webkit-transform: translateX(-1500px);
+		        transform: translateX(-1500px);
+	}
+}
+
+.information {
+	-webkit-animation: block-animation 1s 2s backwards cubic-bezier(.06,.49,.42,1.02);
+	        animation: block-animation 1s 2s backwards cubic-bezier(.06,.49,.42,1.02);
+}
+
+.settings {
+	-webkit-animation: block-animation 1s 2.1s backwards cubic-bezier(.06,.49,.42,1.02);
+	        animation: block-animation 1s 2.1s backwards cubic-bezier(.06,.49,.42,1.02);
+}
+
+.start {
+	-webkit-animation: block-animation 1s 2.2s backwards cubic-bezier(.06,.49,.42,1.02);
+	        animation: block-animation 1s 2.2s backwards cubic-bezier(.06,.49,.42,1.02);
+}
+
+.answers {
+	-webkit-animation: block-animation 1s 2.3s backwards cubic-bezier(.06,.49,.42,1.02);
+	        animation: block-animation 1s 2.3s backwards cubic-bezier(.06,.49,.42,1.02);
+}
+
+footer {
+	-webkit-animation: footer-animation 1s 2.4s backwards ease;
+	        animation: footer-animation 1s 2.4s backwards ease;
+}
+
+.welcome-text {
+	position: fixed;
+	font-size: 70px;
+	font-weight: bold;
+	top: 300px;
+	left: auto;
+	opacity: 1;
+	-webkit-animation: welcome-animation 500ms 1s forwards ease-out, welcome-display-animation 1ms 1500ms forwards;
+	        animation: welcome-animation 500ms 1s forwards ease-out, welcome-display-animation 1ms 1500ms forwards;
+}
